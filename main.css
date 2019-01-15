@@ -1,0 +1,32 @@
+form{
+  display: block;
+  width: 500px;
+  height: 500px;
+  background-color: lightblue;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 10px 10px 8px #888888;
+}
+
+form h2{
+  text-align: center;
+  font-weight: bolder;
+  color: #fff;
+}
+
+form input[type="radio"]{
+  margin-bottom: 10px;
+}
+
+form input[type="submit"]{
+  font-size: 16px;
+  padding: 5px;
+  display: block;
+  margin:0 auto;
+  width: 100px;
+  background-color: lightgreen;
+  border-color: lightgreen;
+  border-radius: 2px;
+  color: grey;
+  font-weight: bolder;
+}
