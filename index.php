@@ -1,3 +1,4 @@
+<?php include_once('includes/db.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,5 +20,10 @@
 
     <input type="submit" value="Votar!">
   </form>
+
+  <?php
+      $db = new DB();
+      $db->connect();
+  ?>
 </body>
 </html>
