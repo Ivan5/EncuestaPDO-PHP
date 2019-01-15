@@ -30,3 +30,21 @@ form input[type="submit"]{
   color: grey;
   font-weight: bolder;
 }
+
+.opcion{
+  padding: 5px 0;
+  margin-left: 10px;
+}
+
+.barra{
+  background-color: rgb(152,196,236);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.seleccionado{
+  background-color: rgb(33, 90, 143);
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px;
+}

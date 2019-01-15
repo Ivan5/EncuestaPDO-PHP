@@ -1,4 +1,4 @@
-<?php include_once('includes/db.php') ?>
+<?php include_once('includes/encuesta.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +10,28 @@
 </head>
 <body>
   <form action="" method="post">
+    <?php
+      $encuesta = new Encuesta();
+      $showResults = false;
+      if(isset($_POST['lenguaje'])){
+        $encuesta->setOpcionSeleccionada($_POST['lenguaje']);
+        $encuesta->vote();
+        $showResults = true;
+      }
+     ?>
     <h2>¿Cuál es tu lenguaje de programación favorito?</h2>
 
+    <?php
+        if($showResults){
+          $resultados = $encuesta->showResults();
+          echo '<h2>'.$encuesta->getTotalVotes().' Votos totales</h2>';
+          foreach ($resultados as $lenguaje) {
+            $porcentaje = $encuesta->getPercentageVotes($lenguaje['votos']);
+            include 'vistas/vista_resultados.php';
+          }
+          return $showResults = false;
+        }
+    ?>
     <input type="radio" name="lenguaje" id="" value="c">C<br>
     <input type="radio" name="lenguaje" id="" value="c++">C++<br>
     <input type="radio" name="lenguaje" id="" value="java">Java<br>
@@ -20,10 +40,5 @@
 
     <input type="submit" value="Votar!">
   </form>
-
-  <?php
-      $db = new DB();
-      $db->connect();
-  ?>
 </body>
 </html>
